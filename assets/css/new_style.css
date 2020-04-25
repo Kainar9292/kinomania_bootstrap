@@ -1,0 +1,10 @@
+.container h1 {
+	color: red;
+	text-align: center;
+}
+
+.nav-tab>li>a{
+	color: #d65f1a;
+	background-color: green;
+	padding-bottom: 75%;
+}

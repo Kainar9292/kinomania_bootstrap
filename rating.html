@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- правильно отображение для разных версии IE -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- подключение viewport позволяет контролировать размеры браузеров, content="width=device-width - ширина равна ширине пикселей устройства, initial-scale=1 - масштабирование  -->
+    <title>Рейтинг фильмов</title> <!-- название страницы во вкладке браузера-->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">     <!-- подключение css Bootstrap -->
+    <link href="assets/css/style.css" rel="stylesheet">             <!-- подключение css main style-->
+  </head>
+  <body>
+    <div class="container-fluid"> <!-- создание блока - сетка container-fluid создает сетку на всю длинну страницы -->
+      <div class="row"> <!-- убирает отступы и растягивает колонку на всю ширину страницы -->
+      <nav role="navigation" class="navbar navbar-inverse"> <!--тег nav нужен для размещения нескольких приоритетных ссылок, задаем роль ссылкам (role)-navigation, класс navbar - приминение стиля меню к ссылкам, navbar-inverse - приминение темного фона меню-->
+        <div class="container"> <!-- создание контейнера в контейнере - в данном контейнере будет находится шапка и меню сайта-->
+          <div class="navbar-header header"> <!-- создание блока  Header для шапки сайта (текста), дописали еще один header для того чтобы задать стили в файле style.css-->
+            <div class="container">         <!-- создание блока для отображения шапки сайта -->
+              <div class="row">
+                <div class="col-lg-12">     <!-- блок для отображения текста шапки на всю длинну сайта на больших мониторах -->
+                  <h1><a href="index.html">КиноМания</a></h1>
+                  <p>Кино - наша жизнь!</p>
+                </div>
+              </div>
+            </div>
+
+           <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle"> <!-- создание кнопки меню для развертывания элементов меню на маленьких экранах -->
+             <span class="sr-only">Toggle navigation</span> <!-- Кнопка переключения режима отображения - контент который следует скрыть но оставить доступным -->
+             <span class="icon-bar"></span>                 <!-- создание иноки с линией -->
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+           </button>
+          </div>
+          <div id="navbarCollapse" class="collapse navbar-collapse navbar-right"> <!-- присвоение id к классу collapse(сворачивание меню) navbar-collapse (сворачивание для класса navbar-меню), navbar-right - прижать стиль к провому краю-->
+          <ul class="nav nav-pills"> <!-- приминение класса nav(menu), nav-pills - делает меню горизонтальным-->
+            <li><a href="index.html">Главная</a> </li> <!--класс предназначен для подсвечивания активного пункта меню -->
+            <li><a href="films.html">Фильмы</a></li>
+            <li><a href="#">Сериалы</a></li>
+            <li class="active"><a href="rating.html">Рейтинг фильмов</a></li>
+            <li><a href="contact.html">Контакты</a></li>
+          </ul>
+          </div>
+        </div>
+      </nav>
+      </div> 
+    </div>
+
+
+    <div class="wrapper">       <!-- основной блок сайта - весь контент страницы-->
+      
+      <div class="container">   <!-- контейнер для хранения данных левого и правого блока сайта -->
+        
+        <div class="row">       <!-- убирате отступы блока по краям + убирает отступы между колонками -->
+
+        <div class="col-lg-9 col-lg-push-3"> <!-- создание блока с колонками для больших экранов и передвижением на 3 колонки вправо (чтобы колонка была справа) -->
+
+          <form role="search" class="visible-xs">     <!-- создание поисковой формы-->
+            <div class="form-group"> <!-- данный класс делает отступы между Input-ами -->
+              <div class="input-group"> <!-- создание блока для ввода данных -->
+                <input type="search" class="form-control input-lg" placeholder="Ваш запрос"> <!-- тип ввода-поиск, класс form-control стилизует input,textarea, select - в стиле Bootstrap, класс input-lg - делает форму большой (lg-large), placeholder - подсказка для пользователя-->
+                <div class="input-group-btn"> <!-- создание класса и стиля для кнопки поиска -->
+                  <button class="btn btn-default btn-lg" type="submit"><i class="glyphicon glyphicon-search"></i></button> <!-- создание кнопки, класс - btn, btn-lg (размер кнопки - большой), тип - submit (Отправить), i class(классы иконок - присвоение иконки нашей кнопке) -->
+                </div>
+              </div>
+            </div>
+          </form>
+        
+          <h1>Рейтинг фильмов</h1>              <!-- Заголовок страницы -->
+          <hr>
+
+          <table class="table table-striped">   <!-- создание таблицы и приминение ему стиля BootStrap table-striped -->
+            <thead>                             <!-- шапка таблицы -->
+              <tr>                              <!-- создание строки в таблице -->
+                <th></th>                       <!-- ячейка шапки таблицы -->
+                <th>Фильм</th>                  
+                <th class="text-center">Год</th><!-- ячейка шапки таблицы с классом выравнивания текста по центра -->
+                <th class="text-center">Рейтинг</th>
+              </tr>
+            </thead>                            <!-- закрытие шапки таблицы -->
+            <tbody>                             <!-- тело таблицы, создания ячеек с данными -->
+              <tr>                              <!-- создание строки в таблице -->
+                <td class="col-lg-1 col-md-1 col-xs-2"> <!-- создание ячейки таблицы которая при большом и среднем экранах занимает 1 столбец разметки, при маленьком экране 2 столбца -->
+                  <img class="img-responsive img-thumbnail" src="assets/img/inter.png" alt="Интерстеллар"> <!-- указание ссылки с картинкой и приминение к нему стиля с рамкой -->
+                </td> <!-- закрытие ячейки с картинкой -->                           
+                <td class="vert-align"><a href="show.html">Интерстеллар</a></td> <!-- создание ячейки слева от картинки с ссылкой на страницу show.html с приминением класса вертикального выравнивания -->
+                <td class="text-center vert-align">2014</td> <!-- создание ячейки с приминением класса вертикального выравнивания -->
+                <td class="text-center vert-align"><span class="badge">8.9</span></td> <!-- создание ячейки с приминением класса вертикального выравнивания и приминения стиля значка для указания оценки рейтинга-->
+              </tr>
+              <tr>
+                <td class="col-lg-1 col-md-1 col-xs-2">
+                  <img class="img-responsive img-thumbnail" src="assets/img/cloud.png" alt="Облачный атлас">
+                </td>
+                <td class="vert-align"><a href="#">Облачный атлас</a></td>
+                <td class="text-center vert-align">2013</td>
+                <td class="text-center vert-align"><span class="badge">8.1</span></td>
+              </tr>
+              <tr>
+                <td class="col-lg-1 col-md-1 col-xs-2">
+                  <img class="img-responsive img-thumbnail" src="assets/img/matrix.png" alt="Матрица">
+                </td>
+                <td class="vert-align"><a href="#">Матрица</a></td>
+                <td class="text-center vert-align">1999</td>
+                <td class="text-center vert-align"><span class="badge">8.3</span></td>
+              </tr>
+              <tr>
+                <td class="col-lg-1 col-md-1 col-xs-2">
+                  <img class="img-responsive img-thumbnail" src="assets/img/max.png" alt="Безумный макс">
+                </td>
+                <td class="vert-align"><a href="#">Безумный макс</a></td>
+                <td class="text-center vert-align">2015</td>
+                <td class="text-center vert-align"><span class="badge">8.7</span></td>
+              </tr>
+            </tbody>
+
+          </table>
+
+          <div class="margin-8"></div>  <!-- отступ блока  -->
+
+        </div> <!-- закртие правого блока колонки контента --> 
+
+
+        <div class="col-lg-3 col-lg-pull-9">  <!-- создание блока с колонками для больших экранов и передвижением на 9 колонок влево (чтобы колонка была слева) -->
+
+          <div class="panel panel-info hidden-xs">  <!-- создание блока Поиск с классами panel и panel-info-->
+            <div class="panel-heading"> <div class="sidebar-header">Поиск</div></div> <!-- создание блока с классом panel-heading для заголовка "Поиск" со стилями для заголовка sidebar-header -->
+            <div class="panel-body">   <!-- блок на котором будет находится контент данной панели (ввод информации) -->
+              <form role="search">     <!-- создание поисковой формы-->
+                <div class="form-group"> <!-- данный класс делает отступы между Input-ами -->
+                  <div class="input-group"> <!-- создание блока для ввода данных -->
+                    <input type="search" class="form-control input-lg" placeholder="Ваш запрос"> <!-- тип ввода-поиск, класс form-control стилизует input,textarea, select - в стиле Bootstrap, класс input-lg - делает форму большой (lg-large), placeholder - подсказка для пользователя-->
+                    <div class="input-group-btn"> <!-- создание класса и стиля для кнопки поиска -->
+                      <button class="btn btn-default btn-lg" type="submit"><i class="glyphicon glyphicon-search"></i></button> <!-- создание кнопки, класс - btn, btn-lg (размер кнопки - большой), тип - submit (Отправить), i class(классы иконок - присвоение иконки нашей кнопке) -->
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>  
+
+          <div class="panel panel-info"> <!-- создание блока Вход с классами panel и panel-info-->
+            <div class="panel-heading"> <div class="sidebar-header">Вход</div></div> <!-- создание блока с классом panel-heading для заголовка "Вход" со стилями для заголовка sidebar-header -->
+            <div class="panel-body">     <!-- блок на котором будет находится контент данной панели (ввод информации) -->
+             
+              <form role="form">         <!-- создание формы для ввода значений-->
+                <div class="form-group"> <!-- данный класс делает отступы между Input-ами -->
+                  <input type="text" class="form-control input-lg" placeholder="Логин"> <!-- ввод логина, стиль form-control, input-lg - большая форма -->
+                </div>      
+                <div class="form-group"> <!-- создание формы для ввода значений-->
+                  <input type="password" class="form-control input-lg" placeholder="Пароль"> <!-- ввод пароля, стиль form-control, input-lg - большая форма -->
+                </div>
+
+                <button type="submit" class="btn btn-warning pull-right">Вход</button> <!-- создание кнопки отправки данных с оформлением warning прижатый к правому краю-->
+
+              </form>
+
+            </div>
+          </div>         
+
+          <div class="panel panel-info"> <!-- создание блока Новости с классами panel и panel-info-->
+            <div class="panel-heading"> <div class="sidebar-header">Новости</div></div> <!-- создание блока с классом panel-heading для заголовка "Новости" со стилями для заголовка sidebar-header -->
+            <div class="panel-body">     <!-- блок на котором будет находится контент данной панели (ввод-вывод информации) -->
+              <p>19.02.2020</p>
+              <p>Мы запустили новый сервис</p> 
+            </div>
+          </div>
+
+          <div class="panel panel-info"> <!-- создание блока Рейтинг фильмов с классами panel и panel-info-->
+            <div class="panel-heading"> <div class="sidebar-header">Рейтинг фильмов</div></div> <!-- создание блока с классом panel-heading для заголовка "Новости" со стилями для заголовка sidebar-header -->
+            <div class="panel-body">     <!-- блок на котором будет находится контент данной панели (ввод информации) -->
+              
+              <ul class="list-group"> <!-- создание группы со списком - класс Bootstraap -->
+
+                <li class="list-group-item list-group-warning"> <!-- создание элемента списка с присвоением класса оформления warning -->
+                  <span class="badge">8.9</span> <!-- Присвоение стиля Оценке рейтинга и выделение Оценки классом Bange - в стиле значка-->
+                  <a href="show.html">Интерстеллар</a> <!-- создание ссылки, надписи - названия фильма -->
+                </li>                          <!-- закрытие строки элемента списка -->
+                <li class="list-group-item list-group-warning">
+                  <span class="badge">8.7</span>
+                  <a href="#">Безумный макс</a>
+                </li>
+                <li class="list-group-item list-group-warning">
+                  <span class="badge">8.3</span>
+                  <a href="#">Матрица</a>
+                </li>
+                <li class="list-group-item list-group-warning">
+                  <span class="badge">8.1</span>
+                  <a href="#">Облачный атлас</a>
+                </li>
+                <li class="list-group-item list-group-warning">
+                  <span class="badge">8.9</span>
+                  <a href="show.html">Интерстеллар</a>
+                </li>                
+                <li class="list-group-item list-group-warning">
+                  <span class="badge">8.7</span>
+                  <a href="#">Безумный макс</a>
+                </li>
+                <li class="list-group-item list-group-warning">
+                  <span class="badge">8.3</span>
+                  <a href="#">Матрица</a>
+                </li>
+                <li class="list-group-item list-group-warning">
+                  <span class="badge">8.1</span>
+                  <a href="#">Облачный атлас</a>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+
+        </div> 
+
+        </div>     
+
+      </div>
+
+      <div class="clear"> <!-- класс нужнен для того чтобы снять обтекание с элемента -->
+        
+      </div>
+
+    </div>
+
+    <footer>                  <!--нижний блок-->
+      <div class="container"> <!--создание контейнера-->
+        <p class="text-center"><a href="https://ru.wh-db.com">WH-DB.COM</a></p> <!--создание параграфа с ссылкой на сайт-->
+      </div>
+
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- подкючение внешних библиотек ajax -->
+    <script src="assets/js/bootstrap.min.js"></script> <!-- Подключаем Bootstrap JS -->
+  </body>
+</html>
